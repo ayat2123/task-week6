@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 
 export default function App(){
     return(
-        <main  className="bg-[#9a9eb4] w-full h-screen flex items-center justify-center">
+        <main  className="bg-[#9a9eb4] w-full min-h-screen flex items-center justify-center">
         <Routes>
             <Route path="/" element={<Layout/>}>
             <Route path="products" element={<Products/>}/>
@@ -15,7 +15,6 @@ export default function App(){
             <Route path="login" element={<Login/>}/>
             </Route>
         </Routes>
-            {/* <ToastContainer/> */}
         </main>
     )
 }
