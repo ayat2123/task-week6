@@ -5,8 +5,7 @@ import * as yup from "yup"
 import { toast } from "react-toastify"
 import { client } from "../lib/axios"
 import logo1 from "../assets/logo1.png"
-import { Link } from "react-router-dom"
-export default function Signup(){
+export default function Login(){
     const schema=yup.object({
         username:yup.string().required(),
         email:yup.string().email().required(),
@@ -41,7 +40,7 @@ export default function Signup(){
         
         <section className="w-100 flex flex-col items-center justify-center  py-6 bg-white shadow-[0px_19px_40px_0px_rgba(0,0,0,0.05)] p-4 rounded-lg">
             <div className="w-full  flex justify-center items-center text-left ml-11">
-            <h1 className="text-black text-5xl mt-35 ">signup</h1>
+            <h1 className="text-black text-5xl mt-35 ">Login</h1>
                 <img src={logo1} className="w-[200px] h-[200px]  bg-white shadow-md"/>
             </div>
 
@@ -73,8 +72,8 @@ export default function Signup(){
                 </label>
                 { errors?.password?<span className="text-error"> {errors.password.message}</span>:null}
 
-                <button className="w-[150px] h-[30px]  bg-[#f47458] rounded-2xl ml-17" >Signup</button>
-                <span className="ml-10 " >Already have an account ?  <Link to="/Login" className="text-[#f47458] "> Login</Link></span>
+                <button className="w-[150px] h-[30px]  bg-[#f47458] rounded-2xl ml-17" >Login</button>
+                {/* <span className="ml-10 " >Already have an account ?  <a  className="text-[#f47458] " href="">Login</a></span> */}
 
             </form>
         </section>
