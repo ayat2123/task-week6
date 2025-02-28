@@ -5,6 +5,7 @@ import * as yup from "yup"
 import { toast } from "react-toastify"
 import { client } from "../lib/axios"
 import logo1 from "../assets/logo1.png"
+import { Link } from "react-router-dom"
 export default function Login(){
     const schema=yup.object({
         username:yup.string().required(),
@@ -24,7 +25,7 @@ export default function Login(){
         try {
             
             console.log(user);
-           const response=await client.post("/auth/local/register", user)
+           const response=await client.post("/auth/local", user)
            localStorage.setItem('token',response.data.jwt)
 
            toast.success("user added successfull",{
@@ -40,16 +41,16 @@ export default function Login(){
         
         <section className="w-100 flex flex-col items-center justify-center  py-6 bg-white shadow-[0px_19px_40px_0px_rgba(0,0,0,0.05)] p-4 rounded-lg">
             <div className="w-full  flex justify-center items-center text-left ml-11">
-            <h1 className="text-black text-5xl mt-35 ">Login</h1>
+            <h1 className="text-black text-5xl mt-35 "> Login</h1>
                 <img src={logo1} className="w-[200px] h-[200px]  bg-white shadow-md"/>
             </div>
 
             <form onSubmit={handleSubmit(submitForm)} action="" className="mt-3 flex flex-col gap-y-6">
 
-                <label className="input input-bordered flex items-center gap-2">
+                {/* <label className="input input-bordered flex items-center gap-2">
                 <input {...register("username")} type="text" className="grow" placeholder="test1" />
                 </label>
-                {errors?.username?<span className="text-error"> {errors.username.message}</span>:null}
+                {errors?.username?<span className="text-error"> {errors.username.message}</span>:null} */}
                 
                 <label className="input input-bordered flex items-center gap-2">
                 <input {...register("email")} type="text" className="grow" placeholder="test1@gmail.com" />
@@ -73,7 +74,7 @@ export default function Login(){
                 { errors?.password?<span className="text-error"> {errors.password.message}</span>:null}
 
                 <button className="w-[150px] h-[30px]  bg-[#f47458] rounded-2xl ml-17" >Login</button>
-                {/* <span className="ml-10 " >Already have an account ?  <a  className="text-[#f47458] " href="">Login</a></span> */}
+                <span className="ml-10 " >I don’t have an account ? <Link to="/signup" className="text-[#f47458] ">Signup</Link>  </span>
 
             </form>
         </section>

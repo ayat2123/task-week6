@@ -39,7 +39,7 @@ export default function Signup(){
     }
     return(
         
-        <section className="w-100 flex flex-col items-center justify-center  py-6 bg-white shadow-[0px_19px_40px_0px_rgba(0,0,0,0.05)] p-4 rounded-lg">
+        <section className="w-100 flex flex-col items-center justify-center  py-6 bg-white shadow-[0px_19px_40px_0px_rgba(0,0,0,0.05)] mt-6! rounded-lg">
             <div className="w-full  flex justify-center items-center text-left ml-11">
             <h1 className="text-black text-5xl mt-35 ">signup</h1>
                 <img src={logo1} className="w-[200px] h-[200px]  bg-white shadow-md"/>
